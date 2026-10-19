@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import { ClipLoader } from "react-spinners";
 import { useNavigate } from "react-router";
+import { GoogleLogin } from "@react-oauth/google";
 
 const LoginForms = () => {
   const [email, setEmail] = useState("");
@@ -45,6 +46,21 @@ const LoginForms = () => {
       setIsLoading(false);
       setPassword("");
       setEmail("");
+    }
+  };
+
+  const handleGoogleLogin = async (credentialResponse) => {
+    try {
+      const idToken = credentialResponse.credential;
+      const res = await axios.post("http://localhost:3000/api/auth/google", {
+        idToken,
+      });
+      const token = res.data.token;
+      localStorage.setItem("Token", token);
+      navigate("/home");
+      // console.log(res.data);
+    } catch (error) {
+      console.error(error.response.data);
     }
   };
 
@@ -127,13 +143,12 @@ const LoginForms = () => {
             <img src={github} alt="github" className="w-5 h-5" />
             <span>GitHub</span>
           </button>
-          <button
-            type="button"
-            className="flex-1 py-3 text-[0.95rem] font-semibold text-gray-700 bg-white border border-gray-200 rounded-xl flex gap-2 items-center justify-center transition-all duration-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-sm active:scale-[0.98]"
-          >
-            <img src={google} alt="google" className="w-5 h-5" />
-            <span>Google</span>
-          </button>
+          <GoogleLogin
+            onSuccess={handleGoogleLogin}
+            onError={() => {
+              console.log("Erreur google recuperation de l'idToken");
+            }}
+          ></GoogleLogin>
         </div>
 
         {/* Bouton submit */}

@@ -8,6 +8,10 @@ import LoginForms from "./composants/LoginForms.jsx";
 import Home from "./Home.jsx";
 import ArticlesForms from "./composants/ArticlesForms.jsx";
 import SignupForms from "./composants/SignupForms.jsx";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+
+const GOOGLE_ID_CLIENT =
+  "613211982569-chph96397j4d49jv3hgdt8ureovpsbdi.apps.googleusercontent.com";
 
 const myRoute = createBrowserRouter([
   { path: "/login", element: <LoginForms></LoginForms> },
@@ -19,6 +23,8 @@ const myRoute = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={myRoute} />
+    <GoogleOAuthProvider clientId={GOOGLE_ID_CLIENT}>
+      <RouterProvider router={myRoute} />
+    </GoogleOAuthProvider>
   </StrictMode>,
 );

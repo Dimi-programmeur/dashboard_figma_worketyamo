@@ -105,7 +105,7 @@ const ArticlesForms = () => {
             value={auteur}
             id="auteur"
             onChange={handleauteur}
-            placeholder="Ex : John Doe"
+            placeholder="Ex : Dimitri 💓"
           />
         </div>
 
