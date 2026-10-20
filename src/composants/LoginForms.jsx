@@ -113,7 +113,7 @@ const LoginForms = () => {
               href="/forgot-password"
               className="text-[0.8rem] font-bold text-[#00539C] hover:underline"
             >
-              Mot de passe oublié ?
+              Forget ?
             </a>
           </div>
           <input
