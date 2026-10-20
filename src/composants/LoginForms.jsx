@@ -111,7 +111,7 @@ const LoginForms = () => {
             </label>
             <a
               href="/forgot-password"
-              className="text-[0.8rem] font-medium text-[#00539C] hover:underline"
+              className="text-[0.8rem] font-bold text-[#00539C] hover:underline"
             >
               Mot de passe oublié ?
             </a>
