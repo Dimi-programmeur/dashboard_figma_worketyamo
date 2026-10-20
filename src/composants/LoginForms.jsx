@@ -123,7 +123,7 @@ const LoginForms = () => {
             onChange={handlePassword}
             name="password"
             id="password"
-            placeholder="••••••••••"
+            placeholder="••••••••••••••••"
           />
         </div>
 
