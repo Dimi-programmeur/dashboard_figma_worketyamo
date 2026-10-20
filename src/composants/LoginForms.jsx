@@ -97,7 +97,7 @@ const LoginForms = () => {
             onChange={handleEmail}
             name="email"
             id="email"
-            placeholder="abc@example.com"
+            placeholder="name@example.com"
           />
         </div>
 
