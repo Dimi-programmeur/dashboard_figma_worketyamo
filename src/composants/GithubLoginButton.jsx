@@ -24,7 +24,7 @@ const GitHubLoginButton = () => {
         localStorage.setItem("Token", token);
         navigate("/home");
 
-        // Ici, tu peux stocker les tokens renvoyés par ton backend ici
+        // Ici, tu peux stocker les tokens renvoyés par ton backend
       } catch (error) {
         console.error(
           "Erreur Backend : ",
