@@ -1,10 +1,10 @@
-import github from "../assets/github-logo.png";
-import google from "../assets/Frame 22.png";
+// import github from "../assets/github-logo.png";
 import axios from "axios";
 import { useState } from "react";
 import { ClipLoader } from "react-spinners";
 import { useNavigate } from "react-router";
 import { GoogleLogin } from "@react-oauth/google";
+import GitHubLoginButton from "./GithubLoginButton";
 
 const LoginForms = () => {
   const [email, setEmail] = useState("");
@@ -135,20 +135,16 @@ const LoginForms = () => {
           <div className="flex-1 h-px bg-gray-200"></div>
         </div>
 
-        <div className="flex gap-3 w-full">
-          <button
-            type="button"
-            className="flex-1 py-3 text-[0.95rem] font-semibold text-gray-700 bg-white border border-gray-200 rounded-xl flex gap-2 items-center justify-center transition-all duration-200 hover:bg-gray-50 hover:border-gray-300 hover:shadow-sm active:scale-[0.98]"
-          >
-            <img src={github} alt="github" className="w-5 h-5" />
-            <span>GitHub</span>
-          </button>
-          <GoogleLogin
-            onSuccess={handleGoogleLogin}
-            onError={() => {
-              console.log("Erreur google recuperation de l'idToken");
-            }}
-          ></GoogleLogin>
+        <div className="flex flex-col gap-3 w-full">
+          <GitHubLoginButton />
+          <div className="h-full w-full font-bold">
+            <GoogleLogin
+              onSuccess={handleGoogleLogin}
+              onError={() => {
+                console.log("Erreur google recuperation de l'idToken");
+              }}
+            ></GoogleLogin>
+          </div>
         </div>
 
         {/* Bouton submit */}
