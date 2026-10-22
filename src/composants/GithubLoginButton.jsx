@@ -35,7 +35,7 @@ const GitHubLoginButton = () => {
       }
     },
     onError: (error) => {
-      console.error("Erreur GitHub OAuth :", error);
+      console.error("Erreur GitHub OAuth : ", error);
     },
   });
 
